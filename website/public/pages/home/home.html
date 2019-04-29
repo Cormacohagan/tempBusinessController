@@ -1,0 +1,130 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!-- Imports & Settings -->
+<html> <!--<![endif]-->
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-resource.js"></script>
+    <script src="/public/components/angular-init/angularApp.js"></script>
+    <script src="/public/pages/home/homeController.js"></script>
+
+    <!-- <script src="/node_modules/angular/angular.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+</head>
+
+<body ng-app="ethAppCtrl" ng-controller="homeCtrl">
+
+    <!-- Top Title Half -->
+    <section class="topBG">
+
+    </section>
+
+    <!-- Page title bar -->
+    <section class="headerSection" id="headerBarDiv">
+        <div class = "titleText" style="width:100%;">
+            <div class = "titleText">
+                NI CarEnergy Business Portal
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Login Area -->
+    <section class="loginSection">
+
+        <div class="loginBox" id="loginBox">
+            <!-- If logging in -->
+            <div class="txtField" id="loginUsernameArea">
+                <div class="defaultText">Email Address</div>
+                <input id="loginUsername" type="text" class="txtContent" placeholder="">
+            </div>
+
+            <div class="txtField" id="loginPasswordArea">
+                <div class="defaultText">Password</div>
+                <input id="loginPassword" type="password" class="txtContent" placeholder="">
+            </div>
+
+
+
+            <div class="loginButtons" id="loginButtonsArea">
+                <div id="loginButton" ng-click="loginLayout()" class = btnTemplate style="margin-right:20px;">
+                    Login
+                </div>
+                <div id = "loginRegisterButton" ng-click="registerLayout()" class = btnTemplate>
+                    Register
+                </div>
+            </div>
+        </div>
+
+
+        <!-- If Registering -->
+        <div class="loginBox" id="registerBox" style="display:none;">
+            <!-- If logging in -->
+            <div class="txtField" id="regUsernameArea">
+                <div class="errorText" id="emptyError">Please fill in each of the text fields below</div>
+                <div class="defaultText">Email Address *</div>
+                <input id="regUsername" type="text" class="txtContent" placeholder="">
+                <div class="errorText" id="emailError">Email already in use</div>
+            </div>
+
+            <div class="txtField" id="regPasswordArea">
+                <div class="defaultText">Password *</div>
+                <input id="regPassword" type="password" class="txtContent" placeholder="">
+            </div>
+
+            <div class="txtField" id="regConfirmPasswordArea">
+                <div class="defaultText">Confirm Password *</div>
+                <input id="regConfirmPassword" type="password" class="txtContent" placeholder="">
+                <div class="errorText" id="passwordError">Passwords do not match.</div>
+            </div>
+
+            <div class="txtField" id="regAddressArea">
+                <div class="defaultText">Address *<br>(Unit/building number, road/estate, city)</div>
+                <input id="regAddress" type="text" class="txtContent" placeholder="">
+            </div>
+
+            <div class="txtField" id="regPostcodeArea">
+                <div class="defaultText">Postcode *</div>
+                <input id="regPostcode" type="text" class="txtContent" placeholder="">
+                <div class="errorText" id="postcodeError">Postcode format invalid</div>
+            </div>
+
+            <div class="txtField" id="BusinessKeyArea">
+                <div class="defaultText">Business Key *<br>(This should have already been provided to you)</div>
+                <input id="regBusinessKey" type="text" class="txtContent" placeholder="">
+                <div class="errorText" id="bkError">Invalid Business Key</div>
+            </div>
+
+
+            <div class="errorText" id="insertError">Something went wrong when inserting the record. <br> Please Try again later. </div>
+            <div class="loginButtons" id="regButtonsArea">
+                <div id="goBackButton" ng-click="loginLayout()" class = btnTemplate style="margin-right:20px;">
+                    Back
+                </div>
+
+                <div id = "regRegisterButton" ng-click="validateRegistration()" class = btnTemplate>
+                    Register
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- Footer -->
+    <section class="blockPageFooter">
+
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!-- Imports & Settings -->
+<html> <!--<![endif]-->
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-resource.js"></script>
+    <script src="/public/components/angular-init/angularApp.js"></script>
+    <script src="/public/pages/transactionInfo/transactionController.js"></script>
+
+    <!-- <script src="/node_modules/angular/angular.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>EthChain Beta</title>
+
+</head>
+
+<body ng-app="ethAppCtrl" ng-controller="transactionCtrl">
+
+<!-- Cool Eth Art-->
+<section class="ethBG">
+
+</section>
+
+<!-- Page title/navigation bar -->
+<section class="headerSection" id="headerBarDiv">
+    <div class = "titleText" style="width:100%;">
+
+        <div class = "titleText" style="width:10%"></div>
+
+        <div class = "titleText" style="width:30%">
+            <i class="fab fa-ethereum" style="padding-right:20px;"></i>
+            <a href="/" style="text-decoration: none; color:#383838;">EthChain Beta</a>
+        </div>
+        <!-- Search Bar -->
+        <div id = "searchBarDiv" class = "titleText" style="width:60%; justify-content: flex-end; margin-right:10%">
+            <div class="wrap">
+                <div class="search">
+                    <input id="searchTxt1" type="text" class="searchTerm" placeholder="Please enter a block number or TX ID...">
+                    <button ng-click="searchBox1()" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!-- Block info section -->
+<section class="blockPageSection">
+    <div class="blockPageTitle">Transaction Details</div>
+    <div class="blockPageTableContainer">
+        <div class="blockPageTable">
+            <div class="blockPageContentHolder">
+                <div class = "blockPageContent" style="width:30%;">
+                    Transaction Hash:
+                </div>
+                <div class = "blockPageContent" style="width:70%;font-size:0.6rem;">
+                    {{hash}}
+                </div>
+            </div>
+
+            <div class="blockPageContentHolder">
+                <div class = "blockPageContent" style="width:30%;">
+                    Block:
+                </div>
+                <div class = "blockPageContent" style="width:70%;">
+                    {{block}}
+                </div>
+            </div>
+
+            <div class="blockPageContentHolder">
+                <div class = "blockPageContent" style="width:30%;">
+                    From:
+                </div>
+                <div class = "blockPageContent" style="width:70%;">
+                    {{from}}
+                </div>
+            </div>
+
+            <div class="blockPageContentHolder">
+                <div class = "blockPageContent" style="width:30%;">
+                    To:
+                </div>
+                <div class = "blockPageContent" style="width:70%;">
+                    {{to}}
+                </div>
+            </div>
+
+            <div class="blockPageContentHolder">
+                <div class = "blockPageContent" style="width:30%;">
+                    Value:
+                </div>
+                <div class = "blockPageContent" style="width:70%;">
+                    {{value}} Ethereum
+                </div>
+            </div>
+
+            <div class="blockPageContentHolder">
+                <div class = "blockPageContent" style="width:30%;">
+                    Gas Used:
+                </div>
+                <div class = "blockPageContent" style="width:70%;">
+                    {{gasUsed}}
+                </div>
+            </div>
+
+            <div class="blockPageContentHolder">
+                <div class = "blockPageContent" style="width:30%;">
+                    Gas Price:
+                </div>
+                <div class = "blockPageContent" style="width:70%;">
+                    {{gasPrice}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<section class="blockPageFooter">
+
+</section>
+
+
+</body>
+</html>

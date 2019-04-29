@@ -1,0 +1,230 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!-- Imports & Settings -->
+<html> <!--<![endif]-->
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-resource.js"></script>
+    <script src="/public/components/angular-init/angularApp.js"></script>
+    <script src="/public/pages/home/homeController.js"></script>
+
+    <!-- <script src="/node_modules/angular/angular.js"></script> -->
+
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>EthChain Beta</title>
+
+</head>
+
+<body ng-app="ethAppCtrl" ng-controller="homeCtrl">
+
+    <!-- Cool Eth Art-->
+    <section class="ethBG">
+
+    </section>
+
+    <!-- Page title/navigation bar -->
+    <section class="headerSection" id="headerBarDiv">
+        <div class = "titleText" style="width:100%;">
+
+            <div class = "titleText" style="width:10%"></div>
+
+            <div class = "titleText" style="width:30%">
+                <i class="fab fa-ethereum" style="padding-right:20px;"></i>
+                EthChain Beta
+            </div>
+            <!-- Search Bar -->
+            <div id = "searchBarDiv" class = "titleText" style="width:60%; justify-content: flex-end; margin-right:10%">
+                <div class="wrap">
+                    <div class="search">
+                        <input id="searchTxt1" type="text" class="searchTerm" placeholder="Please enter a block number or TX ID...">
+                        <button ng-click="searchBox1()" id="searchBtn1" class="searchButton">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Central Search Bar -->
+    <section class="searchbarSection">
+
+        <div class="whitePageText" style="padding-bottom:10px">
+            Welcome to EthChain!
+        </div>
+
+        <div class="whitePageText" style="padding-bottom:20px; font-size:1rem;">
+            The Ethereum Blockchain Explorer
+        </div>
+
+        <div class = "titleText" style="width:50%; float:right">
+            <div class="wrap2">
+                <div class="search2">
+                    <input id="searchTxt2" type="text" class="searchTerm2" placeholder="Search...">
+                    <button ng-click="searchBox2()" id="searchBtn2" class="searchButton2">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="whitePageText" style="padding-top:10px; font-size:0.7rem;color:#42103b;">
+            Please enter a Transaction ID or a Block Number
+        </div>
+
+    </section>
+
+    <!-- Eth Info Section -->
+    <section class="ethInfoSection">
+        <div class="ethInfoTable">
+            <div class = "ethInfoSubTable">
+                <!-- Eth Price -->
+                <div class="ethInfoTableSection">
+
+                    <div class="ethInfoTableContents" style="width:20%;font-size:2rem">
+                        <i class='fab fa-ethereum'></i>
+                    </div>
+
+                    <div class="ethInfoTableContents" style="width:80%; margin-left:20px;">
+                        <div class = "ethInfoTableSectionTitle">
+                            Ethereum Price
+                        </div>
+                        <div class = "ethInfoTableSectionData">
+                            £{{price}}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="verticalDivider"></div>
+
+                <!-- Eth Supply -->
+                <div class="ethInfoTableSection">
+                    <div class="ethInfoTableContents" style="width:20%;font-size:2rem">
+                        <i class='fas fa-coins'></i>
+                    </div>
+
+                    <div class="ethInfoTableContents" style="width:80%; margin-left:20px;">
+                        <div class = "ethInfoTableSectionTitle">
+                            Ethereum Supply
+                        </div>
+                        <div class = "ethInfoTableSectionData">
+                            {{supply}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="horizontalDivider"></div>
+
+            <div class = "ethInfoSubTable">
+                <!-- Eth Market Cap -->
+                <div class="ethInfoTableSection">
+                    <div class="ethInfoTableContents" style="width:20%;font-size:2rem">
+                        <i class='fas fa-globe'></i>
+                    </div>
+
+                    <div class="ethInfoTableContents" style="width:80%; margin-left:20px;">
+                        <div class = "ethInfoTableSectionTitle">
+                            Ethereum Market Cap
+                        </div>
+                        <div class = "ethInfoTableSectionData">
+                            £{{marketCap}} Billion
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verticalDivider"></div>
+
+                <!-- Eth Change 24 hrs pct -->
+                <div class="ethInfoTableSection">
+                    <div class="ethInfoTableContents" style="width:20%;font-size:2rem">
+                        <i class='fas fa-percent '></i>
+                    </div>
+
+                    <div class="ethInfoTableContents" style="width:80%; margin-left:20px;">
+                        <div class = "ethInfoTableSectionTitle">
+                            Market Cap Change (24 Hours)
+                        </div>
+                        <div class = "ethInfoTableSectionData">
+                            {{mktCapChange}}%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="horizontalDivider"></div>
+
+            <div class = "ethInfoSubTable">
+                <!-- Eth Volume -->
+                <div class="ethInfoTableSection">
+                    <div class="ethInfoTableContents" style="width:20%;font-size:2rem">
+                        <i class='fas fa-chart-line'></i>
+                    </div>
+
+                    <div class="ethInfoTableContents" style="width:80%; margin-left:20px;">
+                        <div class = "ethInfoTableSectionTitle">
+                            Ethereum Trading Volume (24 Hours)
+                        </div>
+                        <div class = "ethInfoTableSectionData">
+                            £{{volume}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verticalDivider"></div>
+
+                <!-- Eth Block Num -->
+                <div class="ethInfoTableSection">
+                    <div class="ethInfoTableContents" style="width:20%;font-size:2rem">
+                        <i class='fas fa-cubes'></i>
+                    </div>
+
+                    <div class="ethInfoTableContents" style="width:80%; margin-left:20px;">
+                        <div class = "ethInfoTableSectionTitle">
+                            Current Block
+                        </div>
+                        <div class = "ethInfoTableSectionData">
+                            {{blockNum}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Blocks/Transactions Section -->
+    <section class="blockSection">
+        <div class="blockTableContainer">
+
+            <div class="blockTable" id="recentBlockTable">
+                <div class="blockTitle">
+                    Latest Blocks
+                </div>
+            </div>
+
+            <div class="blockTable" id="recentTransacTable">
+                <div class="blockTitle">
+                    Latest Transactions
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="blockPageFooter">
+
+    </section>
+
+</body>
+</html>
